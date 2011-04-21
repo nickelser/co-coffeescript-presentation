@@ -6,6 +6,8 @@
 
 !SLIDE bullets
 
+# Javascript
+
 * Powerful, ubiquitous
 
 * Compromise design (unarguable)
@@ -44,10 +46,10 @@
 !SLIDE bullets incremental
 
 
-## Dispelling the 'toy' myth
+## Just a toy?
 
 * Used by [37 Signals](http://basecamphq.com/mobile/), [WordSquared](http://wordsquared.com), [Ars Technica](http://itunes.apple.com/us/app/ars-technica/id393859050?mt=8), [Pow](http://pow.cx/)
-* Will be included by default with Rails 3.1
+* Will be included by default with Rails 3.1!
 * Full list available from the [CS wiki](https://github.com/jashkenas/coffee-script/wiki/In-The-Wild)
 
 
@@ -96,7 +98,7 @@
 
 # Killer Feature #2: **Classes / Inheritance**
 
-!SLIDE code smaller center
+!SLIDE code smaller
 
     @@@ruby
     # Create a class
@@ -196,7 +198,7 @@
 
 # Smart variable scoping
 
-(no more forgetting to type var!)
+### (no more forgetting to type var!)
 
 !SLIDE code
 
@@ -212,9 +214,10 @@
 
 !SLIDE bullets incremental
 
-# BTW: No global variables!
+# NB: No global variables!
 
 * Use: `window.myvariable = "something"`
+* (code is wrapped in a closure wrapper)
 
 
 !SLIDE center
@@ -240,7 +243,7 @@
 
 ## (yay Python!)
 
-!SLIDE code smaller center
+!SLIDE code smaller
 
     @@@ruby
     lunch = eat food for food in ['toast', 'cheese', 'wine']
@@ -263,7 +266,7 @@
 
 # Everything is an expression!
 
-(implicit return statement for the last line of every function, à la Ruby)
+### (implicit return statement for the last line of every function, à la Ruby)
 
 !SLIDE code
 
@@ -282,7 +285,7 @@
 
 # More Goodies
 
-!SLIDE code
+!SLIDE code smaller
 
     @@@ruby
 
@@ -334,7 +337,7 @@
 
 # Shut up and take my money!
 
-http://coffeescript.org/#installation
+## [http://coffeescript.org/#installation](http://coffeescript.org/#installation)
 
 !SLIDE bullets
 
@@ -348,11 +351,22 @@ http://coffeescript.org/#installation
 
 * (Or just use [Barista](https://github.com/Sutto/barista))
 
+!SLIDE center smbullets
+
+### You can also include Coffeescript inline on your page for testing
+
+### `<script type="text/coffeescript"></script>`
+
 !SLIDE center
 
-# You can also include 
-
+# ![PlanckTime](planck_time.png)
 
 !SLIDE center
 
-## Learn more at http://coffeescript.org
+Thanks to Jacques Crocker for the original slides!
+
+!SLIDE center
+
+# Demo
+
+### [bgrams](http://bgrams.octernion.org)
