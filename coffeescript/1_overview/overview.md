@@ -236,7 +236,9 @@
 
 !SLIDE center
 
-# Array Comprehension (yay Python!)
+# Array Comprehension 
+
+## (yay Python!)
 
 !SLIDE code smaller center
 
@@ -309,7 +311,7 @@
     winner = yes if pick in [47, 92, 13]
 
 
-!SLIDE code
+!SLIDE code smaller
 
     @@@ruby
     Account = (customer, cart) ->
@@ -328,7 +330,7 @@
     healthy = 200 > cholesterol > 60
 
 
-!SLIDE bullets incremental
+!SLIDE center
 
 # Shut up and take my money!
 
