@@ -2,110 +2,60 @@
 
 # ![CoffeeScript](logo.png)
 
-## syntax matters
-
-
-!SLIDE smbullets incremental
-
-## **About Me**
-
-* Jacques Crocker
-* a "rails jedi"
-* primarily focused on frontend dev
-
-!SLIDE smbullets incremental
-
-
-## *recently...*
-
-* built http://scrabb.ly for node knockout
-* massively multiplayer scrabble board
-* now known as wordsquared.com (f*&#ing hasbro)
-* frontend code 100% coffeescript
-
-
-!SLIDE bullets incremental
-
-##  **Confession:**
-* My favorite language is **Ruby**
-* What I code in most is **Javascript**
-* Javascript has always bugged me
+## why not enjoy writing javascript again?
 
 !SLIDE bullets
 
-* I love what javascript can do
-* I just don't like the syntax of the language
-* It's a tad ugly (arguable)
+* Powerful, ubiquitous
+
+* Compromise design (unarguable)
+
+* Ugly (arguable)
+
+* Needs libraries to be expressive
 
 
 !SLIDE smbullets incremental
 
-## **CoffeeScript** to the rescue
+## **CoffeeScript** to the rescue!
 
 * Not *that* different than javascript
-
 * Combines the best aspects of Ruby and Python
-
 * Whitespace sensitive for code organization
-
-* Compiles into javascript
+* Compiles into javascript (or is interpreted)
 
 
 !SLIDE code smaller
 
     @@@ruby
 
-    # example code (from scrabb.ly)...
+    # example code (from my demo app)...
 
-    # build query from playTiles
-    query = {}
-    _(Board.playTiles).each (tile, coords) ->
-      wildcard = $(tile).dataset('wildcard')
-      coords = coords.split(",")
+    $chat_input.keydown (e) =>
+      c = e.keyCode || e.which
+      if c == 13 # enter
+        msg = $chat_input.val()
+        $.ajax
+          url: API_URL + 'chat'
+          data:
+            message: msg
 
-      # add tiles onto query (sent to server)
-      query.tiles.push
-        letter: $(tile).dataset('letter')
-        wildcard: (wildcard == "true")
-        x: parseInt(coords[0], 10)
-        y: parseInt(coords[1], 10)
-
-!SLIDE center
-
-## Douglas Crockford likes it!
-
-!SLIDE
-
-### "One of my favorites along those lines is a new little language called CoffeeScript, which takes the good parts -- not even all of the good parts, but a nice little language -- and comes up with groovy new syntax for it, which is minimal. It's almost like dandelions: little fluffs of programs that do everything that conventional JavaScript programs do. You can't do anything in that language that you can't do in JavaScript, so it's all cosmetic. I don't know if all or much of that will find its way into JavaScript, because I'm not sure there's enough of a payoff there. But just as an experiment, as a design exercise, I think it's a brilliant piece of work. I'm excited to see stuff like that happening. "
-
-### -- Douglas Crockford (author of "Javascript: The Good Parts")
-
-
-!SLIDE center
-
-## **Just for Fun**
-
-![justforfun](justforfun.png)
-
-
-!SLIDE center
-
-## Nope, **not** just for Fun
 
 !SLIDE bullets incremental
 
 
-## For **Serious Business**??
+## Dispelling the 'toy' myth
 
-* Used by 37 Signals, Github, many more
-* Still pre 1.0, but it's getting very close
-* Some syntax changes coming for 1.0,<br>so be cautious
+* Used by [37 Signals](http://basecamphq.com/mobile/), [WordSquared](http://wordsquared.com), [Ars Technica](http://itunes.apple.com/us/app/ars-technica/id393859050?mt=8), [Pow](http://pow.cx/)
+* Will be included by default with Rails 3.1
+* Full list available from the [CS wiki](https://github.com/jashkenas/coffee-script/wiki/In-The-Wild)
 
 
 !SLIDE center
 
-# The Killer Features
+# Why should we care?
 
+## (aka the killer features)
 
 !SLIDE center
 
@@ -117,21 +67,21 @@
     # Multiline Strings
 
     html = """
-           <strong>
-             cup of coffeescript
-           </strong>
+           <div class='player'>
+            <span class='name'>
+              ...
+            </span>
+           </div>
            """
 
-!SLIDE code
+!SLIDE code smaller
 
     @@@ruby
 
-    # String Interpolation
+    # String Interpolation (à la Ruby)
 
-    author = "Wittgenstein"
-
-    quote  = "A picture is a fact. -- #{author}"
-
+    author = "Tupac Shakur"
+    quote  = "Reality is wrong. Dreams are for real. -- #{author}"
 
 !SLIDE code
 
@@ -139,16 +89,14 @@
     # Interpolation works on regexes too
 
     sep   = "[.\\/\\- ]"
-
     dates = /\d+#{sep}\d+#{sep}\d+/g
-
 
 
 !SLIDE center
 
 # Killer Feature #2: **Classes / Inheritance**
 
-!SLIDE code smaller
+!SLIDE code smaller center
 
     @@@ruby
     # Create a class
@@ -213,19 +161,6 @@
       sister:
         name: "Ida"
         age:  9
-
-!SLIDE code
-
-    @@@ruby
-
-    # jquery ajax call
-    $.ajax
-      url: "/drag"
-      type: "POST"
-      contentType: 'application/json'
-      data:
-        game: Game.gameId()
-        tiles: serverTileCoords
 
 !SLIDE center
 
@@ -292,7 +227,7 @@
 
     @@@javascript
 
-    // yeah, we dont need to do this anymore
+    // yeah, we don't need to do this anymore
     (function($) {
 
       // my jquery code
@@ -301,9 +236,9 @@
 
 !SLIDE center
 
-# Array Comprehension
+# Array Comprehension (yay Python!)
 
-!SLIDE code smaller
+!SLIDE code smaller center
 
     @@@ruby
     lunch = eat food for food in ['toast', 'cheese', 'wine']
@@ -324,9 +259,9 @@
 
 !SLIDE center
 
-# BTW, everything is an expression
+# Everything is an expression!
 
-implicit return statement for the last line of every function
+(implicit return statement for the last line of every function, à la Ruby)
 
 !SLIDE code
 
@@ -395,19 +330,9 @@ implicit return statement for the last line of every function
 
 !SLIDE bullets incremental
 
-# Get it installed...
+# Shut up and take my money!
 
-* via Homebrew
-
-    brew install coffee-script
-
-* via NPM (node)
-
-    npm install coffee-script
-
-* Manually (easy)
-
-    http://coffeescript.org/#installation
+http://coffeescript.org/#installation
 
 !SLIDE bullets
 
@@ -419,18 +344,13 @@ implicit return statement for the last line of every function
 
 * Interactive: `coffee -i`
 
+* (Or just use [Barista](https://github.com/Sutto/barista))
 
-!SLIDE bullets
+!SLIDE center
 
-# With Ruby on Rails
-
-* For now, use Barista: https://github.com/Sutto/barista
-
-* Rails 3.1 will have native coffee-script support
+# You can also include 
 
 
 !SLIDE center
 
-## Thanks!
-
-### Learn more at http://coffeescript.org
+## Learn more at http://coffeescript.org
